@@ -5,12 +5,12 @@
 {% block content %}
 
 <div class="container">
-    <h1>Create New Item</h1>
+    <h1>Update Item</h1>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
 
-        <button class="btn btn-outline-info" type="submit">Add Item</button>
+        <button class="btn btn-outline-info" type="submit">Update Item</button>
     </form>
 </div>
 

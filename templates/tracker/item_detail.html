@@ -1,0 +1,21 @@
+{% extends 'tracker/base.html' %}
+
+
+
+{% block content %}
+    <h1 class="display-4">Item Detail</h1>
+    <br>
+    <h5>Customer</h5>
+    <p>{{item.customer_name}}</p>
+    <h5>Address</h5>
+    <p>{{ item.address }}</p>
+    <h5>Description</h5>
+    <p>{{ item.description }}</p>
+    <h5>Product</h5>
+    <p>{{ item.product }}</p>
+    <h5>Price</h5>
+    <p>{{ item.price }}</p>
+    <h5>Publish Date</h5>
+    <p>{{ item.date_published }}</p>
+<a href="{% url 'tracker:home' %}">Back to Dashboard</a><a href="#" class="btn btn-danger float-right ml-3">Delete</a><a href="{% url 'tracker:update_item' item.id %}" class="btn btn-info float-right">Update</a>
+{% endblock %}

@@ -23,10 +23,11 @@
           <th scope="row">{{ forloop.counter0 }}</th>
           <td>{{ customer.customer_name }}</td>
           <td>{{ customer.address }}</td>
-          <td>{{ customer.description }}</td>
+          <td>{{ customer.description|truncatechars:10 }}</td>
           <td>{{ customer.product }}</td>
           <td>{{ customer.price }}</td>
           <td>{{ customer.date_published }}</td>
+          <td><a href="{% url 'tracker:item_detail' customer.id %}">View</a></td>
         </tr>
       </tbody>
       {% endfor %}
