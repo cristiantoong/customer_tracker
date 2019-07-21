@@ -1,0 +1,20 @@
+{% extends 'tracker/base.html'%}
+
+
+{% block content %}
+<div class="mt-5">
+    <a class="btn btn-dark" href="{% url 'tracker:export_customer_xls' %}">Export all Customer Items</a>
+    <br>
+    <br>
+    <form class="" action="." method="post">
+        {% csrf_token %}
+        <p class="text-dark">Import Excel Files:</p>
+        <input type="file" id="myFile">
+        <br>
+        <br>
+        <input type="submit" name="upload" value="Upload">
+    </form>
+
+</div>
+
+{% endblock %}
