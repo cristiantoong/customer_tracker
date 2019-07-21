@@ -27,19 +27,21 @@ def add_item(request):
     return render(request, 'tracker/add_item.html', context)
 
 
+@login_required
 def item_detail(request, item_id):
     item = get_object_or_404(Customer, pk=item_id)
     context = {'item': item}
     return render(request, 'tracker/item_detail.html', context)
 
 
+@login_required
 def update_item(request, item_id):
     customer = get_object_or_404(Customer, pk=item_id)
     if request.method == 'POST':
         form = CustomerForm(request.POST, instance=customer)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Item Updated')
+            messages.success(request, 'Item Successfully Updated')
             return redirect('tracker:home')
     else:
         form = CustomerForm(instance=customer)
@@ -48,3 +50,17 @@ def update_item(request, item_id):
         'customer': customer,
     }
     return render(request, 'tracker/item_update.html', context)
+
+
+def delete_item(request, item_id):
+    customer = get_object_or_404(Customer, pk=item_id)
+    if request.method == 'POST':
+        customer.delete()
+        messages.success(request, 'Item Successfully Deleted')
+        return redirect('tracker:home')
+    context = {
+        'customer': customer
+    }
+    return render(request, 'tracker/item_delete.html', context)
+    # context = {'customer': customer}
+    # return render(request, 'tracker/home.html', context)

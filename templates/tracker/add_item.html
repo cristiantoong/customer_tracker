@@ -5,13 +5,17 @@
 {% block content %}
 
 <div class="container">
-    <h1>Create New Item</h1>
+    <h1 class="mt-5">Create New Item</h1>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
 
         <button class="btn btn-outline-info" type="submit">Add Item</button>
     </form>
+    <br>
+    <a href="{% url 'tracker:home' %}">Go back to Dashboard</a>
+    <br>
+    <br>
 </div>
 
 {% endblock %}

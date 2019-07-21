@@ -1,0 +1,13 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+
+
+    <form action="." method="POST" class="mt-5">
+        {% csrf_token %}
+        <h1 class="display-4">Do you want to delete the product
+            <br>"<b>{{ customer.product }}</b>" owned by <b>{{ customer.customer_name }}</b></h1>
+        <input type="submit" value="Yes" class="btn btn-danger mt-5"> <a href="{% url 'tracker:home' %}" class="btn btn-secondary mt-5 ml-2">Cancel</a>
+    </form>
+
+{% endblock %}

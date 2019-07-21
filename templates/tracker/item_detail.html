@@ -17,5 +17,5 @@
     <p>{{ item.price }}</p>
     <h5>Publish Date</h5>
     <p>{{ item.date_published }}</p>
-<a href="{% url 'tracker:home' %}">Back to Dashboard</a><a href="#" class="btn btn-danger float-right ml-3">Delete</a><a href="{% url 'tracker:update_item' item.id %}" class="btn btn-info float-right">Update</a>
+<a href="{% url 'tracker:home' %}">Back to Dashboard</a><a href="{% url 'tracker:delete_item' item.id %}" class="btn btn-danger float-right ml-3">Delete</a><a href="{% url 'tracker:update_item' item.id %}" class="btn btn-info float-right">Update</a>
 {% endblock %}
